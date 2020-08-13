@@ -4,7 +4,9 @@
   "author": "Shawn Dempsey <shwanton@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "format": "yarn fix && yarn pretty",
+    "test": "jest",
+    "pretty": "prettier --write 'src/**/*.ts'"
   },
   "dependencies": {
     "xstate": "^4.11.0"
