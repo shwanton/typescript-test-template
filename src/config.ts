@@ -1,17 +1,18 @@
 import { MachineConfig } from "xstate";
+import type { StateSchema, EventObject } from "xstate";
 
-interface Context {}
-interface StateSchema {
+export type XContext = Record<string, any>;
+export interface XStateSchema extends StateSchema {
   states: {
     inactive: {};
     active: {};
   };
 }
-interface Event {
+export interface XEvent extends EventObject {
   type: "TOGGLE";
 }
 
-const config: MachineConfig<Context, StateSchema, Event> = {
+const config: MachineConfig<XContext, XStateSchema, XEvent> = {
   id: "toggle",
   initial: "inactive",
   states: {

@@ -1,6 +1,6 @@
-import { config } from "./config";
+import { config, XContext, XEvent } from "./config";
 import { Machine } from "xstate";
 
-const toggleMachine = Machine(config);
+const toggleMachine = Machine<XContext, XEvent>(config);
 
 export { toggleMachine };
