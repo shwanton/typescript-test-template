@@ -6,6 +6,6 @@ import type { XEvent, XContext, XStateSchema } from "./config";
 
 const service = interpret<XContext, XStateSchema, XEvent, Typestate<XContext>>(
   toggleMachine
-).start();
+);
 
 export { service };

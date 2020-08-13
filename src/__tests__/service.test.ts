@@ -1,27 +1,56 @@
 import { service } from "../service";
 
 test("should have initial inactive state", () => {
+  service.start();
+
   expect(service.state.value).toBe("inactive");
+
+  service.stop();
 });
 
-test("should transition to next active state", () => {
+test("should transition to active state", () => {
+  service.start();
+
   service.send("TOGGLE");
 
   expect(service.state.value).toBe("active");
+
+  service.stop();
 });
 
-test("should transition to next inactive state", () => {
+test("should transition back to inactive state", () => {
+  service.start();
+
+  service.send("TOGGLE");
   service.send("TOGGLE");
 
   expect(service.state.value).toBe("inactive");
+
+  service.stop();
 });
 
-test("should have correct state during transition", () => {
+test("should have active state value in transition callback", () => {
+  service.start();
+
   service.send("TOGGLE");
 
   service.onTransition((state) => {
     expect(state.value).toBe("active");
   });
+
+  service.stop();
+});
+
+test("should have state matching boolean in transition callback", () => {
+  service.start();
+
+  service.send("TOGGLE");
+
+  service.onTransition((state) => {
+    expect(state.matches("active")).toBe(true);
+  });
+
+  service.stop();
 });
 
 // add test for not logging impossible states
