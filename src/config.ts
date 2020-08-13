@@ -1,7 +1,7 @@
 import { MachineConfig } from "xstate";
 import type { StateSchema, EventObject } from "xstate";
 
-export type XContext = Record<string, any>;
+export type XContext = {};
 export interface XStateSchema extends StateSchema {
   states: {
     inactive: {};
