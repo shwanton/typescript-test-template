@@ -1,0 +1,15 @@
+{
+  "name": "wallabyjs-template",
+  "version": "1.0.0",
+  "author": "Shawn Dempsey <shwanton@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.9",
+    "jest": "^26.4.0",
+    "ts-jest": "^26.2.0",
+    "typescript": "^3.9.7"
+  }
+}
