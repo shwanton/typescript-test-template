@@ -1,8 +1,8 @@
-import { interpret } from "xstate";
 import type { Typestate } from "xstate";
+import { interpret } from "xstate";
 
+import type { XContext, XEvent, XStateSchema } from "./config";
 import { toggleMachine } from "./machine";
-import type { XEvent, XContext, XStateSchema } from "./config";
 
 const service = interpret<XContext, XStateSchema, XEvent, Typestate<XContext>>(
   toggleMachine

@@ -1,11 +1,11 @@
+import type { EventObject, StateSchema } from "xstate";
 import { MachineConfig } from "xstate";
-import type { StateSchema, EventObject } from "xstate";
 
-export type XContext = {};
+export type XContext = Record<string, unknown>;
 export interface XStateSchema extends StateSchema {
   states: {
-    inactive: {};
-    active: {};
+    inactive: Record<string, unknown>;
+    active: Record<string, unknown>;
   };
 }
 export interface XEvent extends EventObject {
